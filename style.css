@@ -1,0 +1,523 @@
+@charset 'utf-8';
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    background-color: transparent;
+}
+
+canvas {
+    transition: 1s;
+    width: 960px;
+    height: 640px;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.top_contents {
+    margin-top: 3px;
+}
+
+.status {
+    display: flex;
+    width:100%;
+}
+
+.kaisou {
+    background-image: URL(image/kaisou.png);
+    background-size: cover;
+    line-height: 38px;
+    color: #fff;
+    width: 150px;
+    height: 38px;
+}
+
+body {
+    background-image: url(image/bg_main.png);
+    background-size: cover;
+}
+
+.teki_box {
+    min-width: 80px;
+}
+
+.status_box {
+    padding: 0 10px;
+    margin-top:3px;
+    border: 3px solid #aaa;
+    background-color: RGBA(0,0,0,0.6);
+    position: relative;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-around;
+}
+
+.status_box_row {
+    flex-direction:row;
+}
+
+.change_list {
+    width:250px;
+}
+
+.item_box {
+    position: fixed;
+    z-index: 10;
+}
+
+.chara_field {
+    display: flex;
+    justify-content:space-around;
+    margin-bottom: 10px;
+}
+
+.clause_button {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 40px;
+    line-height: 16px;
+    border-radius: 3px;
+    height: 20px;
+    border: 1.5px solid #aaa;
+    background-color: RGBA(0,0,0,0.6);
+    text-align: center;
+    color: #fff;    
+}
+
+.clause_button:hover {
+    border: 1.5px solid #fff;
+    background-color: RGB(255,255,255);
+    color: #555;    
+}
+
+.chara {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+    text-align:center;
+}
+
+.chara_box {
+    width: 80px;
+    height:80px;
+}
+
+.chara img {
+    height: 80px;
+    transition: 0.2s;
+}
+
+.teki_img {
+    transform: scale(-1,1);
+    transition: 0.2s;
+}
+
+.log {
+    width: 500px;
+    height: 206px;
+    overflow-y: scroll;
+    border: 3px solid #aaa;
+    background-color: RGBA(0,0,0,0.6);
+    color:#fff;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+.item_boxs {
+    padding: 0 10px;
+    border: 3px solid #aaa;
+    position: relative;
+    background-color: RGBA(0,0,0,0.6);
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    height: 209px;
+    overflow-y: scroll;
+}
+
+.fa-times-circle:before {
+    content: "\f057";
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 25px;
+}
+
+.magic_button {
+    height: 200px;
+    overflow-y: scroll;
+    padding: 3px;    
+}
+
+/*スマホ十字キー*/
+
+.fa-arrow-left:before {
+    content: "\f060";
+    font-size: 60px;
+    opacity: 0.5;
+}
+
+.fa-arrow-up:before {
+    content: "\f062";
+    font-size: 60px;
+    opacity: 0.5;
+}    
+
+.fa-arrow-right:before {
+    content: "\f061";
+    font-size: 60px;
+    opacity: 0.5;
+}    
+
+.fa-arrow-down:before {
+    content: "\f063";
+    font-size: 60px;
+    opacity: 0.5;
+}
+
+.s_button_center {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-sync-alt:before {
+    content: "\f2f1";
+    position: absolute;
+    top: -53px;
+    right: 7px;
+    font-size: 50px;
+    color: #fff;
+}
+
+
+.log p {
+    margin-left: 10px;
+}
+
+.log p br:first-child{
+    display: none;
+}
+
+.buki_table {
+    margin: 0 auto;
+    min-width: 80px;
+}
+
+.console {
+    display: flex;
+    position:absolute;
+    width: 960px;
+}
+
+.job_box button {
+    width: 140px;
+    height:35px;
+    border: 2px solid #fff;
+    background-color: #555;
+    border-radius: 20px;
+    color: #fff;    
+}
+
+.magic_button button {
+    width: 155px;
+    height: 30px;
+    border: 2px solid #fff;
+    background-color: #555;
+    border-radius: 8px;
+    color: #fff;
+    margin-bottom: 3px;
+}
+
+.job_box {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    border: 3px solid #aaa;
+    background-color: RGBA(0,0,0,0.6);
+    width: 200px;
+    text-align: center;
+}
+
+.job_button {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.button {
+    position: absolute;
+    top: -28px;
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    right: 0;
+}
+
+.button button {
+    width: 60px;
+    border-radius: 3px;
+    height: 25px;
+    border: 3px solid #aaa;
+    background-color: RGBA(85,85,85,0.3);    
+}    
+
+.user_st {
+    margin: 0 5px;
+    color:#fff;
+    width:250px;
+    padding: 0 10px;
+    justify-content:space-around;
+}
+
+.chara_st {
+     display:flex;
+     justify-content:space-between;
+     align-items:flex-end;
+}
+
+.teki {
+    min-width:80px;
+    min-height:80px;    
+}
+
+button:focus {
+	outline:0;
+}
+
+.point_up {
+    display: flex;
+    justify-content:center;
+}
+
+.point_up button {
+    margin: 0 10px;
+}
+
+.err_log {
+    color:red;
+    font-weight: bold;
+}
+
+.user_log {
+    color:#47ffb6;
+    font-weight: bold;
+}
+
+.chara_down {
+    color:#ff1a00;
+}
+
+.get_log {
+    color: #ffed47;
+}
+
+.battle_chara_down {
+    color:#ff9147;
+}
+
+.assist_log {
+    color:#5aff47;
+}
+
+.chara_log {
+    color:#ff5a47;
+    font-weight: bold;
+}
+
+.chara {
+    transition: 0.2s;
+}　
+
+.d_damage {
+    color:#8B0000;
+    font-weight: bold;
+}
+
+.status_up {
+    font-weight: bold;    
+}
+
+.status_gage {
+    padding: 10px;
+    width: 120px;
+    border:5px solid #000;
+    background-color: #555555;
+    border-radius: 5px;
+    color:#fff;
+}
+
+.parameter {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.damage_img {
+    position: absolute;
+    left: 0px;
+    right:0px;
+    top: 0px; 
+    bottom:0px;
+}
+
+.damege_num {
+    font-weight: bold;
+}
+
+.chara_box {
+    position: relative;
+}
+
+.damege_num {
+    position: absolute;
+    top: -15px;
+    left: 40px;    
+}
+
+.top_contents {
+    position: fixed;
+    width:960px;
+    z-index: 10;
+}
+
+.hp_gage {
+    width: 66.6667%;
+    background-color: red;
+    height: 6px;
+    border-radius: 3px 0px 0px 3px;
+    transition: 1s;
+    opacity: 0.8;
+}
+
+.hp_gage_box {
+    border: 1px solid #999;
+    border-radius: 3px;
+    height: 8px;
+}
+
+.item_box {
+    display: flex;
+    justify-content: space-around;
+    background-color: #555555;
+    color:#fff;
+    padding-top: 10px;
+}
+
+.item_name {
+    text-align: center;
+}
+
+/*スライド　ダメージ　開始*/
+.form-box-enter {
+}
+
+.form-box-enter-active {
+}
+
+.form-box-enter-to {
+}
+
+/*fadeout*/
+
+.form-box-leave {
+  opacity: 1;
+  z-index:4;
+}
+
+.form-box-leave-active {
+  transition: all 1s;
+  z-index:4;
+}
+
+.form-box-leave-to {
+  transform: translateY(-30px);
+  opacity: 0;
+  z-index:4;
+}
+/*スライド　ダメージ　終了*/
+.damage-enter {
+}
+
+.damage-enter-active {
+}
+
+.damage-enter-to {
+}
+
+/*fadeout*/
+
+.damage-leave {
+  opacity: 1;
+  z-index:4;
+}
+
+.damage-leave-active {
+  transition: all 0.2s;
+  z-index:4;
+}
+
+.damage-leave-to {
+  opacity: 1;
+  z-index:4;
+}
+@media screen and (min-width: 1001px){
+    .job_box button:hover {
+        border: 2px solid #555;
+        background-color: #fff;
+        color:#555;
+        transition: 0.2s;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .job_box {
+        width: 270px;
+    }
+    .user_st {
+        width: 250px;
+    }
+    .log {
+        width: 430px;
+    }
+    .log span {
+        font-size:17px;
+    }
+    .log p {
+        margin: 0 3px;
+    }
+    .job_button {
+        flex-wrap: wrap;
+    }
+    .job_box button {
+        width: 125px;
+        height: 80px;
+    }
+    
+    .job_box .magic_button button {
+         width: 200px;
+        height: 50px;
+        margin-top: 10px;
+    }
+    .s_button_center {
+    justify-content: space-around;
+    }
+    
+}
